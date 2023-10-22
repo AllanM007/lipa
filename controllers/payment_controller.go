@@ -28,20 +28,20 @@ type Payment struct {
 	Remarks         string         `json:"remarks"    binding:"remarks"`
 }
 
-func Add[T constraints.Ordered](a , b T) T {
+func Add[T constraints.Integer](a , b T) T {
 	return a + b
 }
 
-func Subtract[T constraints.Ordered](a , b T) T {
-	return a + b
+func Subtract[T constraints.Integer](a , b T) T {
+	return a - b
 }
 
-func Multiply[T constraints.Ordered](a , b T) T {
-	return a + b
+func Multiply[T constraints.Integer](a , b T) T {
+	return a * b
 }
 
-func Divide[T constraints.Ordered](a , b T) T {
-	return a + b
+func Divide[T constraints.Integer](a , b T) T {
+	return a / b
 }
 
 func Min[T constraints.Ordered](a , b T) T {
