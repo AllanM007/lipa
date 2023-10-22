@@ -1,4 +1,4 @@
-name: Mombo Goals CI
+name: Lipa CI
 
 # 1
 # Controls when the workflow will run
@@ -15,8 +15,8 @@ on:
         required: true
 # 2
 env:
-  #   REGISTRY: "AllanMombo/goal-accounts"
-  IMAGE_NAME: "goal-accounts"
+  #   REGISTRY: "Allan/lipa"
+  IMAGE_NAME: "lipa"
   TOKEN: ${{ secrets.GITHUB_TOKEN }} # it's needed for GH CLI
 
 #3

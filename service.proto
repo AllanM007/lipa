@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-service ProductManagement {
-  rpc GetProduct(ProductRequest) returns (ProductResponse);
-  rpc UpdateStock(StockUpdateRequest) returns (StockUpdateResponse);
+service PaymentManagement {
+  rpc GetPayments(PaymentRequest) returns (PaymentResponse);
+  rpc UpdatePayment(PaymentUpdateRequest) returns (PaymentUpdateResponse);
 }

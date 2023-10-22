@@ -20,7 +20,8 @@ require (
 	github.com/pelletier/go-toml/v2 v2.0.6 // indirect
 	github.com/spf13/afero v1.9.3 // indirect
 	github.com/tdewolff/parse/v2 v2.6.5 // indirect
-	golang.org/x/sys v0.5.0 // indirect
+	golang.org/x/exp v0.0.0-20231006140011-7918f672742d // indirect
+	golang.org/x/sys v0.13.0 // indirect
 	golang.org/x/text v0.7.0 // indirect
 	google.golang.org/protobuf v1.31.0 // indirect
 	gorm.io/gorm v1.25.5 // indirect
