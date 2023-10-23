@@ -3,8 +3,19 @@ package controllers
 import (
 	"time"
 
-	"golang.org/x/exp/constraints"
+	"github.com/AllanM007/lipa/models"
+	"gorm.io/gorm"
 )
+
+type Payments struct {
+	DB *gorm.DB
+}
+
+func PaymentsRepo(db *gorm.DB) *Payments {
+	db.AutoMigrate(&models.PaymentChannel{})
+
+	return &Payments{DB :db}
+}
 
 type Channel struct {
 	Id              uint           `json:"id"`
@@ -26,34 +37,4 @@ type Payment struct {
 	Recipient       Channel        `json:"recipient"  binding:"recipient"`
 	Timestamp       time.Time      `json:"timeStamp"  binding:"timestamp"`
 	Remarks         string         `json:"remarks"    binding:"remarks"`
-}
-
-func Add[T constraints.Integer](a , b T) T {
-	return a + b
-}
-
-func Subtract[T constraints.Integer](a , b T) T {
-	return a - b
-}
-
-func Multiply[T constraints.Integer](a , b T) T {
-	return a * b
-}
-
-func Divide[T constraints.Integer](a , b T) T {
-	return a / b
-}
-
-func Min[T constraints.Ordered](a , b T) T {
-	if a > b {
-		return b
-	}
-	return a
-}
-
-func Max[T constraints.Ordered](a , b T) T {
-	if a > b {
-		return a
-	}
-	return b
 }
