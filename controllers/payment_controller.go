@@ -38,3 +38,7 @@ type Payment struct {
 	Timestamp       time.Time      `json:"timeStamp"  binding:"timestamp"`
 	Remarks         string         `json:"remarks"    binding:"remarks"`
 }
+
+func NewPayment()  {
+	
+}
