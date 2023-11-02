@@ -3,7 +3,10 @@ package controllers
 import (
 	"time"
 
+	"net/http"
+
 	"github.com/AllanM007/lipa/models"
+	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
 )
 
@@ -14,31 +17,36 @@ type Payments struct {
 func PaymentsRepo(db *gorm.DB) *Payments {
 	db.AutoMigrate(&models.PaymentChannel{})
 
-	return &Payments{DB :db}
+	return &Payments{DB: db}
 }
 
 type Channel struct {
-	Id              uint           `json:"id"`
-	Identifier      string         `json:"identifier"`
-	Name            string         `json:"name"`
+	Id         uint   `json:"id"`
+	Identifier string `json:"identifier"`
+	Name       string `json:"name"`
 }
 
 type Currency struct {
-	Id              uint           `json:"id"`
-	Name            string         `json:"name"`
-	Active          bool           `json:"active"`
+	Id     uint   `json:"id"`
+	Name   string `json:"name"`
+	Active bool   `json:"active"`
 }
 
 type Payment struct {
-	UID             string         `json:"uid"        binding:"required"`
-	Source          Channel        `json:"source"     binding:"required"`
-	Amount          float64        `json:"amount"     binding:"amount"`
-	Currency        Currency       `json:"currency"   binding:"currency"`
-	Recipient       Channel        `json:"recipient"  binding:"recipient"`
-	Timestamp       time.Time      `json:"timeStamp"  binding:"timestamp"`
-	Remarks         string         `json:"remarks"    binding:"remarks"`
+	UID       string    `json:"uid"        binding:"required"`
+	Source    Channel   `json:"source"     binding:"required"`
+	Amount    float64   `json:"amount"     binding:"amount"`
+	Currency  Currency  `json:"currency"   binding:"currency"`
+	Recipient Channel   `json:"recipient"  binding:"recipient"`
+	Timestamp time.Time `json:"timeStamp"  binding:"timestamp"`
+	Remarks   string    `json:"remarks"    binding:"remarks"`
 }
 
-func NewPayment()  {
-	
+func NewPayment(c *gin.Context) {
+	var payment Payment
+
+	if err := c.BindJSON(&payment); err != nil {
+		c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"status": "ACCESS_DENIED", "message": "Invalid payment!!", "err": err.Error()})
+		return
+	}
 }
