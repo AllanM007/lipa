@@ -50,3 +50,32 @@ func NewPayment(c *gin.Context) {
 		return
 	}
 }
+
+type UpdatePay struct {
+	Id            uint      `json:"id"         binding:"required"`
+	Source        Channel   `json:"source"     binding:"required"`
+	Amount        float64   `json:"amount"     binding:"amount"`
+	Currency      Currency  `json:"currency"   binding:"currency"`
+	Recipient     Channel   `json:"recipient"  binding:"recipient"`
+	Timestamp     time.Time `json:"timeStamp"  binding:"timestamp"`
+	UpdateRemarks string    `json:"updateRemarks"   binding:"required"`
+}
+
+func UpdatePayment(c *gin.Context) {
+
+	var updatePay UpdatePay
+
+	if err := c.BindJSON(&updatePay); err != nil {
+		c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"status": "ACCESS_DENIED", "message": "Invalid payment update!!", "err": err.Error()})
+		return
+	}
+}
+
+type DeletePay struct {
+	Id            uint   `json:"id" binding:"required"`
+	DeleteRemarks string `json:"deleteRemarks"  binding:"required"`
+}
+
+func DeletePayment(c *gin.Context) {
+
+}
