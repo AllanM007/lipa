@@ -8,7 +8,7 @@
 [![CodeQL Analysis](https://github.com/Njoguu/loyalty-program-api/actions/workflows/codeql_analysis.yml/badge.svg?branch=main)](https://github.com/Njoguu/loyalty-program-api/actions/workflows/codeql_analysis.yml) <br>
 [![GitHub Pages](https://github.com/Njoguu/loyalty-program-api/actions/workflows/pages-build.yml/badge.svg)](https://github.com/Njoguu/loyalty-program-api/actions/workflows/pages-build.yml)
 
-This is a loyalty points API built with GO and the Gin web framework. The API allows customers to earn points for purchases, and redeem those points for rewards.
+This is a payment switch API built with GO and the Gin web framework. The API allows customers to earn points for purchases, and redeem those points for rewards.
 
 ## Requirements
 - GO (version 1.18 or higher)
