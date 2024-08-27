@@ -112,8 +112,8 @@ Follow the steps below to set up the development environment for the Loyalty Pro
 1. Clone the Loyalty Program API repository from the version control system of your choice (e.g., GitHub).
 
 ```shell
-git clone https://github.com/Njoguu/loyalty-program-api.git
-cd loyalty-program-api
+git clone https://github.com/AllanM007/lipa
+cd lipa
 ```
 
 2. Copy the example environment file and update the configuration variables as needed.
@@ -146,7 +146,7 @@ Docker Compose will build and start the Loyalty Program API, along with the requ
   - Build application
 
   ```sh
-  $ go build -o loyalty-program-api || make build
+  $ go build -o lipa || make build
   ```
 
   - Start application server in development
