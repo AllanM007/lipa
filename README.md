@@ -15,7 +15,7 @@ This is a loyalty points API built with GO and the Gin web framework. The API al
 
 ## Supported databases
 - PostgreSQL
-> **Note** loyalty-program-api uses [GORM](https://github.com/go-gorm/gorm) as its ORM
+> **Note** lipa uses [GORM](https://github.com/go-gorm/gorm) as its ORM
 
 ## Features
 The API has put in place the following features:
